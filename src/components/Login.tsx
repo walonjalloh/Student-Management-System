@@ -42,10 +42,10 @@ export default function Login(){
             <div className="flex flex-col flex-1">
                 <div className='flex justify-center items-center gap-4'>
                     <Button
-                    className="bg-blue-500 font-bold w-[100px] hover:bg-blue-700"
+                    className="bg-blue-500 font-bold w-[150px] hover:bg-blue-700 focus:rounded-full "
                     onClick={handleStudent}>student</Button>
                     <Button
-                    className="font-bold w-[100px]"
+                    className="font-bold w-[150px] focus:rounded-full"
                     onClick={handleAdmin}>admin</Button>
                 </div>
                 {type.student  && (
@@ -65,6 +65,7 @@ export default function Login(){
                         onChange={(e)=>setEmail(e.target.value)} 
                         required
                         placeholder="example@gmail.com"
+                        className="focus:rounded-full"
                         />
                         <Label
                         htmlFor="password" 
@@ -76,8 +77,9 @@ export default function Login(){
                         onChange={(e)=>setPassword(e.target.value)}
                         required
                         placeholder="password"
+                        className="focus:rounded-full"
                         />
-                        <Button className="mt-2 font-bold bg-blue-500 text-xl hover:bg-blue-700">Login</Button>
+                        <Button className="mt-2 font-bold bg-blue-500 text-xl hover:bg-blue-700 hover:rounded-full">Login</Button>
                     </form>
                     <h3 className="mt-4 mb-4 text-center text-blue-300">forgot password......</h3>
                     <Link to='/contactus' className="text-center text-lg font-bold"><h3 className="text-black/70">Need help. contact support</h3></Link>
@@ -101,6 +103,7 @@ export default function Login(){
                         onChange={(e)=>setEmail(e.target.value)} 
                         required
                         placeholder="example@gmail.com"
+                        className="focus:rounded-full"
                         />
                         <Label
                         htmlFor="password" 
@@ -112,8 +115,9 @@ export default function Login(){
                         onChange={(e)=>setPassword(e.target.value)}
                         required
                         placeholder="password"
+                        className="focus:rounded-full"
                         />
-                        <Button className="mt-2 font-bold bg-blue-500 text-xl hover:bg-blue-700">Login</Button>
+                        <Button className="mt-2 font-bold bg-blue-500 text-xl hover:bg-blue-700 hover:rounded-full">Login</Button>
                     </form>
                     <h3 className="mt-4 mb-4 text-center text-blue-300">forgot password......</h3>
                     <Link to='/contactus' className="text-center text-lg font-bold"><h3 className="text-black/70">Need help. contact support</h3></Link>
