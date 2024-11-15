@@ -41,8 +41,12 @@ export default function Login(){
             </div>
             <div className="flex flex-col flex-1">
                 <div className='flex justify-center items-center gap-4'>
-                    <Button onClick={handleStudent}>student</Button>
-                    <Button onClick={handleAdmin}>admin</Button>
+                    <Button
+                    className="bg-blue-500 font-bold w-[100px] hover:bg-blue-700"
+                    onClick={handleStudent}>student</Button>
+                    <Button
+                    className="font-bold w-[100px]"
+                    onClick={handleAdmin}>admin</Button>
                 </div>
                 {type.student  && (
                     <>
@@ -83,7 +87,7 @@ export default function Login(){
                 {type.admin && (
                     <>
                     <div>
-                    <p className="text-4xl text-center my-5 font-bold">Login to your  admin account </p>
+                    <p className="text-4xl text-center my-5 font-bold">Login to your admin account </p>
                 </div>
                 <main>
                     <form className="flex flex-col gap-2">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from "../assets/logo.png";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -15,7 +16,7 @@ export default function Navbar() {
       <nav>
         <div className="flex flex-row items-center mx-4 my-2 justify-between">
           <div>
-            <img src={logo} alt="Logo"  className="text-blue-400 w-[200px]"/>
+            <Link to='/'><img src={logo} alt="Logo"  className="text-blue-400 w-[200px]"/></Link>
           </div>
           {isAuthenticated ? (
             <div className="hidden md:flex flex-row gap-4 items-center">
@@ -25,7 +26,7 @@ export default function Navbar() {
           ) : (
             <div className="hidden md:flex flex-row gap-4 items-center">
               <Button className="bg-blue-400 bg-clip-text text-transparent hover:bg-blue-600 font-bold text-xl hover:rounded-full py-1">register</Button>
-              <Button className=" font-bold text-xl hover:rounded-full py-2">login</Button>
+              <Button className=" font-bold text-xl hover:rounded-full py-2"><Link to='/login'>login</Link></Button>
             </div>
           )}
           <div className="md:hidden">
@@ -43,7 +44,7 @@ export default function Navbar() {
           ) : (
             <div className="flex flex-col mx-4 gap-2">
               <Button className="bg-blue-400 hover:bg-blue-600 bg-clip-text text-transparent font-bold text-xl hover:rounded-full py-1">register</Button>
-              <Button className="font-bold text-xl hover:rounded-full py-1">login</Button>
+              <Button className="font-bold text-xl hover:rounded-full py-1"><Link to='/login'>login</Link></Button>
             </div>
           )}
         </div>
