@@ -16,7 +16,7 @@ export default function Navbar() {
       <nav>
         <div className="flex flex-row items-center mx-4 my-2 justify-between">
           <div>
-            <Link to='/'><img src={logo} alt="Logo"  className="text-blue-400 w-[200px]"/></Link>
+            <Link to='/'><img src={logo} alt="Logo"  className="text-blue-400 shadow-3xl w-[200px]"/></Link>
           </div>
           {isAuthenticated ? (
             <div className="hidden md:flex flex-row gap-4 items-center">
