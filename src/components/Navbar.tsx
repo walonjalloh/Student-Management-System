@@ -25,7 +25,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div className="hidden md:flex flex-row gap-4 items-center">
-              <Button className="bg-blue-400 bg-clip-text text-transparent hover:bg-blue-600 font-bold text-xl w-[150px] hover:rounded-full py-1">register</Button>
+              <Button className="bg-blue-400 bg-clip-text text-transparent hover:bg-blue-600 font-bold text-xl w-[150px] hover:rounded-full py-1"><Link to='/register'>register</Link></Button>
               <Button className=" font-bold text-xl hover:rounded-full py-2 w-[150px]"><Link to='/login'>login</Link></Button>
             </div>
           )}
@@ -43,7 +43,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div className="flex flex-col mx-4 gap-2">
-              <Button className="bg-blue-400 hover:bg-blue-600 bg-clip-text text-transparent font-bold text-xl hover:rounded-full py-1">register</Button>
+              <Button className="bg-blue-400 hover:bg-blue-600 bg-clip-text text-transparent font-bold text-xl hover:rounded-full py-1"><Link to='/register'>register</Link></Button>
               <Button className="font-bold text-xl hover:rounded-full py-1"><Link to='/login'>login</Link></Button>
             </div>
           )}
