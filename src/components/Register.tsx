@@ -1,15 +1,19 @@
-import { useState } from "react"
+import { useState,useContext } from "react"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
+import AuthContext from "@/context/AuthContext"
 
 interface Type {
     student:boolean,
     admin:boolean
 }
 
+
+
 export default function Login(){
+    const { register } = useContext(AuthContext) || {}
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [fullname, setFullname] = useState<string>('')
@@ -24,6 +28,9 @@ export default function Login(){
             student:true,
             admin:false
         })
+
+        const env = import.meta.env.VITE_NAME_FULL
+console.log(env)
     }
 
     const handleAdmin = ():void => {
@@ -31,6 +38,14 @@ export default function Login(){
             student:false,
             admin:true
         })
+    }
+
+    const handleSubmit = async(e:React.FormEvent<HTMLFormElement>):Promise<void> => {
+        e.preventDefault()
+        await register!(email,password)
+        setEmail('')
+        setFullname('')
+        setPassword('')
     }
     return(
         <section className="mx-4 flex flex-col items-center justify-center min-h-screen">
@@ -55,7 +70,7 @@ export default function Login(){
                     <p className="text-4xl text-center my-5 font-bold">Register your student account </p>
                 </div>
                 <main>
-                    <form className="flex flex-col gap-2">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                     <Label
                         htmlFor="fullname" 
                         className="font-bold text-lg mb-1">Fullname: </Label>
@@ -64,7 +79,7 @@ export default function Login(){
                         id='fullname'
                         value={fullname}
                         onChange={(e)=>setFullname(e.target.value)} 
-                        required
+                        
                         placeholder="John Doe"
                         className="focus:rounded-full"
                         />
@@ -105,7 +120,7 @@ export default function Login(){
                     <p className="text-4xl text-center my-5 font-bold">Register your admin account </p>
                 </div>
                 <main>
-                    <form className="flex flex-col gap-2">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                     <Label
                         htmlFor="fullname" 
                         className="font-bold text-lg mb-1">Fullname: </Label>
@@ -114,7 +129,7 @@ export default function Login(){
                         id='fullname'
                         value={fullname}
                         onChange={(e)=>setFullname(e.target.value)} 
-                        required
+                        
                         placeholder="John Doe"
                         className="focus:rounded-full"
                         />

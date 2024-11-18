@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 
 export default function Hero() {
@@ -12,7 +13,7 @@ export default function Hero() {
           </p>
         </main>
         <div className="flex gap-4 ">
-            <Button className="bg-blue-400 bg-clip-text hover:bg-blue-600 text-transparent font-bold text-lg hover:rounded-full py-1 lg:w-[400px] lg:text-2xl lg:py-4">Dashboard</Button>
+            <Button className="bg-blue-400 bg-clip-text hover:bg-blue-600 text-transparent font-bold text-lg hover:rounded-full py-1 lg:w-[400px] lg:text-2xl lg:py-4"><Link to='/dashboard'>Dashboard</Link></Button>
             <Button className="font-bold text-lg hover:rounded-full  py-2 lg:w-[400px] lg:text-2xl lg:py-4">Learn more</Button>
         </div>
       </div>

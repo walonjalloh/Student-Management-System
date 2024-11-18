@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useState, useContext} from "react"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
+import AuthContext from "../context/AuthContext"
+
 
 interface Type {
     student:boolean,
@@ -17,6 +19,8 @@ export default function Login(){
         admin:false
     })
 
+    const { login } = useContext(AuthContext) || {}
+
     //functions to handle the type change between student and admin
     const handleStudent = ():void => {
         setType({
@@ -30,6 +34,13 @@ export default function Login(){
             student:false,
             admin:true
         })
+    }
+
+    const handleSubmit = async(e:React.FormEvent<HTMLFormElement>):Promise<void> => {
+        e.preventDefault()
+        await login!(email,password)
+        setEmail('')
+        setPassword('')
     }
     return(
         <section className="mx-4 flex flex-col items-center justify-center min-h-screen">
@@ -54,7 +65,7 @@ export default function Login(){
                     <p className="text-4xl text-center my-5 font-bold">Login to your student account </p>
                 </div>
                 <main>
-                    <form className="flex flex-col gap-2">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                         <Label
                         htmlFor="email" 
                         className="font-bold text-lg mb-1">Email: </Label>
@@ -92,7 +103,7 @@ export default function Login(){
                     <p className="text-4xl text-center my-5 font-bold">Login to your admin account </p>
                 </div>
                 <main>
-                    <form className="flex flex-col gap-2">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                         <Label
                         htmlFor="email" 
                         className="font-bold text-lg mb-1">Email: </Label>

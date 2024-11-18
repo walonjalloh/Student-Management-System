@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import logo from "../assets/logo.png";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import AuthContext from "@/context/AuthContext";
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
-  const isAuthenticated:boolean = false
+  const { isAuthenticated,logout } = useContext(AuthContext) || {}
 
   function handleMobileMenu() {
     setIsOpened(!isOpened);
@@ -20,8 +21,8 @@ export default function Navbar() {
           </div>
           {isAuthenticated ? (
             <div className="hidden md:flex flex-row gap-4 items-center">
-              <Button className="bg-blue-400 bg-clip-text text-transparent font-bold text-xl hover:rounded-full w-[150px] hover:bg-blue-600 py-1">Dashboard</Button>
-              <Button className="font-bold text-xl hover:rounded-full py-1 w-[150px]">logout</Button>
+              <Button className="bg-blue-400 bg-clip-text text-transparent font-bold text-xl hover:rounded-full w-[150px] hover:bg-blue-600 py-1"><Link to='/dashboard'>Dashboard</Link></Button>
+              <Button onClick={logout} className="font-bold text-xl hover:rounded-full py-1 w-[150px]">logout</Button>
             </div>
           ) : (
             <div className="hidden md:flex flex-row gap-4 items-center">
@@ -38,8 +39,8 @@ export default function Navbar() {
         <div className="md:hidden w-full mt-2">
           {isAuthenticated ? (
             <div className="flex flex-col mx-4 gap-2">
-              <Button className="bg-blue-400 bg-clip-text hover:bg-blue-600 text-transparent font-bold text-xl hover:rounded-full py-1">Dashboard</Button>
-              <Button className="font-bold text-xl hover:rounded-full py-1">logout</Button>
+              <Button className="bg-blue-400 bg-clip-text hover:bg-blue-600 text-transparent font-bold text-xl hover:rounded-full py-1"><Link to='/dashboard'>Dashboard</Link></Button>
+              <Button onClick={logout} className="font-bold text-xl hover:rounded-full py-1">logout</Button>
             </div>
           ) : (
             <div className="flex flex-col mx-4 gap-2">
