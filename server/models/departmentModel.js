@@ -1,25 +1,23 @@
 import mongoose from "mongoose";
-
 const Schema = mongoose.Schema
 
-const moduleSchema = new Schema({
-    name:{
+const departmentSchema = new Schema({
+    name: {
         type:String,
         required:true
     },
-    totalStudent: {
+    numberOfStudent: {
         type:Number,
         default: 0
     },
-    teacherName: {
+    modules: [{
         type:String,
-        required:true
-    },
-    grades: {
+        default:[]
+    }],
+    numberOfTeacher: {
         type:Number,
         default:0
     }
 })
-
-const Modules = mongoose.model('Modules',moduleSchema)
-export default Modules
+const Department = mongoose.model('Department',departmentSchema)
+export default Department

@@ -1,17 +1,16 @@
 import mongoose, { mongo } from "mongoose";
 const Schema = mongoose.Schema
 
-const deanSchema = new Schema({
+const hodSchema = new Schema({
     fullname: {
         type:String,
-        required:True
+        required:true
     },
-    faculty: {
+    department: {
         type:String,
         required:true
     },
 })
 
-const Dean = mongoose.model('Dean', deanSchema)
-
-export default Dean
+const HOD = mongoose.model('HOD',hodSchema)
+export default HOD
