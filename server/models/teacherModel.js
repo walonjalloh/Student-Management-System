@@ -6,6 +6,14 @@ const teacherSchema = new Schema({
         type:String,
         required:true
     },
+    password: {
+        type:String,
+        required:true
+    },
+    refreshToken: {
+        type:String,
+        default:""
+    },
     isHod: {
         type:Boolean,
         required:true
